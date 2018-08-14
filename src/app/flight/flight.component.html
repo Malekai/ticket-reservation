@@ -1,0 +1,40 @@
+<h1>Welcome to Online Air Ticket Reservation</h1>
+<br />
+<h2>Displaying all Airlines across the world</h2>
+<br />
+<div>
+    <table border="1">
+        <thead>
+          <tr>
+              <th>Flight id</th>
+              <th>Source</th>
+              <th>destination</th>
+              <th>Dep Date</th>
+              <th>Arr Date</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let flight of flights; let i = index" [class.active] = "i == selectedRow">
+              <td>{{flight.flightId}}</td>
+              <td>{{flight.source}}</td>
+              <td>{{flight.destination}}</td>
+              <td>{{flight.departureDate}}</td>
+              <td>{{flight.arrivalDate}}</td>
+              <td>
+                <button type="button" (click)="showFlight(flight, i)">Show details</button>
+              </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="showFlightDetails"> 
+  <h3>The Details of Flight: {{flightDetails.flightId}}</h3>
+  <h4>ScheduleId: {{flightDetails.scheduleId}}</h4> 
+  <h4>Source: {{flightDetails.source}}</h4> 
+  <h4>Destination: {{flightDetails.destination}}</h4>  
+  <h4>Departure Date: {{flightDetails.departureDate}}</h4> 
+  <h4>Arrival Date: {{flightDetails.arrivalDate}}</h4> 
+  <h4>Base Fare: {{flightDetails.baseFare}}</h4>
+  <h4>Seats Available: {{flightDetails.seatsAvailable}}</h4>
+  <h4>Message: {{flightDetails.message}}</h4>
+</div>

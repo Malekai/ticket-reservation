@@ -3,16 +3,18 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { FlightComponent } from './flight/flight.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FlightComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [FlightComponent]
 })
 export class AppModule { }
