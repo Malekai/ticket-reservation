@@ -11,12 +11,10 @@ export class FlightComponent {
 
   flights : Flight[] = mockFlights;
   flightDetails : Flight = null;
-  showFlightDetails: Boolean = false;
   selectedRow: number;
 
   showFlight(flight : Flight, index: number) {
     this.flightDetails =  flight;
-    this.showFlightDetails = true;
     this.selectedRow = index;
   }
 

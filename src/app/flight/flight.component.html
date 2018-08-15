@@ -1,20 +1,26 @@
-<h1>Welcome to Online Air Ticket Reservation</h1>
-<br />
-<h2>Displaying all Airlines across the world</h2>
-<br />
-<div>
-    <table border="1">
-        <thead>
-          <tr>
-              <th>Flight id</th>
+<div [ngClass]="{'container-fluid':true}">
+  <div [ngClass]="{'text-center':true}">
+      <h2>Welcome to Online Air Ticket Reservation</h2>
+    
+      <h4>Displaying all Airlines across the world</h4>
+    </div>
+    <br>
+    <br>
+    <div [ngClass]="{'row':true}">
+      <div [ngClass]="{'col-md-8':true,'col-md-offset-2':true}">
+        <table *ngIf="flights" [ngClass]="{'table':true, 'table-responsive':true}">
+          <thead>
+            <tr>
+              <th>Flight ID</th>
               <th>Source</th>
-              <th>destination</th>
+              <th>Destination</th>
               <th>Dep Date</th>
               <th>Arr Date</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let flight of flights; let i = index" [class.active] = "i == selectedRow">
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let flight of flights; let i = index" [class.active]="i == selectedRow">
+            <tr>
               <td>{{flight.flightId}}</td>
               <td>{{flight.source}}</td>
               <td>{{flight.destination}}</td>
@@ -24,17 +30,12 @@
                 <button type="button" (click)="showFlight(flight, i)">Show details</button>
               </td>
             </tr>
-        </tbody>
-    </table>
-</div>
-<div *ngIf="showFlightDetails"> 
-  <h3>The Details of Flight: {{flightDetails.flightId}}</h3>
-  <h4>ScheduleId: {{flightDetails.scheduleId}}</h4> 
-  <h4>Source: {{flightDetails.source}}</h4> 
-  <h4>Destination: {{flightDetails.destination}}</h4>  
-  <h4>Departure Date: {{flightDetails.departureDate}}</h4> 
-  <h4>Arrival Date: {{flightDetails.arrivalDate}}</h4> 
-  <h4>Base Fare: {{flightDetails.baseFare}}</h4>
-  <h4>Seats Available: {{flightDetails.seatsAvailable}}</h4>
-  <h4>Message: {{flightDetails.message}}</h4>
+          </tbody>
+        </table>
+      </div>
+    
+      <div *ngIf="flightDetails" [ngClass]="{'col-md-4':true,'col-md-offset-2':true}">
+        <app-flight-details [details]="flightDetails"></app-flight-details>
+      </div>
+  </div>
 </div>
