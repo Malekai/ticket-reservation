@@ -7,13 +7,13 @@ html, body {
 	-o-background-size: cover;
 	background-size: cover;
         opacity: 0.97;
-    font-size: 12px;
+    font-size: 14px;
     height: 100%;
 }
 
 .row {
 	margin-right: 0px;
-	margin-left: 0px 
+	margin-left: 40px 
 }
 
 .container-fluid {

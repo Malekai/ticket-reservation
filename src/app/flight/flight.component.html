@@ -7,7 +7,7 @@
     <br>
     <br>
     <div [ngClass]="{'row':true}">
-      <div [ngClass]="{'col-md-8':true,'col-md-offset-2':true}">
+      <div [ngClass]="{'col-md-6':true,'col-md-offset-1':true}">
         <table *ngIf="flights" [ngClass]="{'table':true, 'table-responsive':true}">
           <thead>
             <tr>
@@ -21,20 +21,20 @@
           </thead>
           <tbody *ngFor="let flight of flights; let i = index" [class.active]="i == selectedRow">
             <tr>
-              <td>{{flight.flightId}}</td>
+              <td>{{flight.flightId| id}}</td>
               <td>{{flight.source}}</td>
               <td>{{flight.destination}}</td>
-              <td>{{flight.departureDate}}</td>
-              <td>{{flight.arrivalDate}}</td>
+              <td>{{flight.departureDate| date:'mediumDate'}}</td>
+              <td>{{flight.arrivalDate|date:'mediumDate'}}</td>
               <td>
-                <button type="button" (click)="showFlight(flight, i)">Show details</button>
+                <button class="btn btn-info" type="button" (click)="showFlight(flight, i)">Show details</button>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     
-      <div *ngIf="flightDetails" [ngClass]="{'col-md-4':true,'col-md-offset-2':true}">
+      <div *ngIf="flightDetails" [ngClass]="{'col-md-6':true,'col-md-offset-1':true}">
         <app-flight-details [details]="flightDetails"></app-flight-details>
       </div>
   </div>
